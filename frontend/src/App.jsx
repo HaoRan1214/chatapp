@@ -1,3 +1,5 @@
+// frontend/src/App.jsx
+
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home/Home";
