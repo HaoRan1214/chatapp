@@ -17,11 +17,8 @@ npm run build
 
 
 
-cd backend
-npm start
+cd backend   npm start
 
-cd frontend
-npm run dev
+cd frontend   npm run dev
 
-cd microservices
-npm run start-all
+cd microservices  npm run start-all
