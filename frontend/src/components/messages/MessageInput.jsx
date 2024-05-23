@@ -26,12 +26,30 @@ const MessageInput = () => {
 		}
 	};
 
+	const convertMessage = async (message) => {
+		try {
+			const response = await fetch('http://localhost:5004/convert', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({ message })
+			});
+			const data = await response.json();
+			return data.convertedMessage;
+		} catch (error) {
+			console.error('Error converting message:', error);
+			return message;
+		}
+	};
+
 	const handleSubmitMessage = async (e) => {
 		e.preventDefault();
 		if (!message) return;
 
 		const filteredMessage = await filterMessage(message);
-		await sendMessage(filteredMessage);
+		const convertedMessage = await convertMessage(filteredMessage);
+		await sendMessage(convertedMessage);
 		setMessage("");
 	};
 

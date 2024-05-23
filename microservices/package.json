@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "start-all": "node start-all.js"
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    }
+}
