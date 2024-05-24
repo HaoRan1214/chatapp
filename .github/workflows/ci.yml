@@ -10,6 +10,7 @@ on:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     steps:
@@ -19,21 +20,29 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '20'
+        node-version: '14'
 
     - name: Install dependencies
       run: npm install
 
-    - name: Run ESLint
-      run: npm run lint
+    - name: Run static code analysis
+      run: npx eslint .
 
     - name: Run security check
-      run: npm audit --audit-level=moderate
+      run: npm audit
 
     - name: Run tests
       run: npm test
 
+    - name: Run load tests
+      run: |
+        docker run --rm -i grafana/k6 run - <load-test/load-test-script.js
+
+    - name: Run end-to-end tests
+      run: npx cypress run
+
   deploy:
+
     runs-on: ubuntu-latest
     needs: build
 
