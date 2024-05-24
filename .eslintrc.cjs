@@ -39,5 +39,14 @@ module.exports = {
     {
       files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
     },
+    {
+      files: ['tailwind.config.js'],
+      env: {
+        node: true, // 为 tailwind.config.js 文件设置 Node.js 环境
+      },
+      rules: {
+        'no-undef': 'off',
+      },
+    },
   ],
 };
