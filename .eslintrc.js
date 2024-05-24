@@ -25,4 +25,9 @@ module.exports = {
     'react/prop-types': 'off',
     '@typescript-eslint/no-var-requires': 'off', // 示例规则，根据需要调整
   },
+  overrides: [
+    {
+      files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
+    },
+  ],
 };
