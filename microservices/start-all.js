@@ -1,8 +1,6 @@
 const { exec } = require('child_process');
 
 // 定义要运行的命令
-
-
 const services = [
   { name: 'API Gateway', command: 'cd api-gateway && node index.js' },
   { name: 'Service1-auth', command: 'cd auth-service && node index.js' },
@@ -14,7 +12,7 @@ const services = [
 ];
 
 // 依次运行每个命令
-services.forEach((service, index) => {
+services.forEach((service) => {
   if (!service.command) {
     console.error(`${service.name} 的 command 未定义`);
     return;
