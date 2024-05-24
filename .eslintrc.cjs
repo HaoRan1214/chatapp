@@ -7,6 +7,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:react-hooks/recommended', // 添加 React hooks 插件
     'plugin:@typescript-eslint/recommended',
   ],
   parser: '@typescript-eslint/parser',
@@ -19,8 +20,14 @@ module.exports = {
   },
   plugins: [
     'react',
+    'react-hooks', // 添加 React hooks 插件
     '@typescript-eslint',
   ],
+  settings: {
+    react: {
+      version: 'detect', // 自动检测 React 版本
+    },
+  },
   rules: {
     'react/prop-types': 'off',
     '@typescript-eslint/no-var-requires': 'off',
