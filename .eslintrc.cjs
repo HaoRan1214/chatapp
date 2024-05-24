@@ -7,23 +7,23 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended', // 添加 TypeScript ESLint 插件
+    'plugin:@typescript-eslint/recommended',
   ],
-  parser: '@typescript-eslint/parser', // 使用 TypeScript 解析器
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2021, // 支持最新的 ECMAScript 版本
+    ecmaVersion: 2021,
     sourceType: 'module',
   },
   plugins: [
     'react',
-    '@typescript-eslint', // 添加 TypeScript ESLint 插件
+    '@typescript-eslint',
   ],
   rules: {
     'react/prop-types': 'off',
-    '@typescript-eslint/no-var-requires': 'off', // 示例规则，根据需要调整
+    '@typescript-eslint/no-var-requires': 'off',
   },
   overrides: [
     {
