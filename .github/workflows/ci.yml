@@ -19,7 +19,7 @@ jobs:
         options: --privileged
         ports:
           - 3000:3000
-          - 5000:5000 # 如果有多个端口需要暴露，请添加更多
+          - 5000:5000
 
     steps:
     - name: Checkout repository
@@ -49,19 +49,19 @@ jobs:
       run: |
         cd backend
         npm start &
-        sleep 10 # 等待后端服务启动
+        sleep 10
 
     - name: Start frontend
       run: |
         cd frontend
         npm run dev &
-        sleep 10 # 等待前端服务启动
+        sleep 10
 
     - name: Start microservices
       run: |
         cd microservices
         npm run start-all &
-        sleep 10 # 等待微服务启动
+        sleep 10
 
     - name: Run static code analysis
       run: npm run lint
