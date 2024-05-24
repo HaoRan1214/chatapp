@@ -3,15 +3,14 @@ module.exports = {
     browser: true,
     es2021: true,
     node: true,
-    'cypress/globals': true,
+    'cypress/globals': true, // 添加 Cypress 环境
   },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:react-refresh/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:cypress/recommended',
+    'plugin:cypress/recommended', // 添加 Cypress 推荐配置
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -24,9 +23,8 @@ module.exports = {
   plugins: [
     'react',
     'react-hooks',
-    'react-refresh',
     '@typescript-eslint',
-    'cypress',
+    'cypress', // 添加 Cypress 插件
   ],
   settings: {
     react: {
@@ -36,10 +34,6 @@ module.exports = {
   rules: {
     'react/prop-types': 'off',
     '@typescript-eslint/no-var-requires': 'off',
-  },
-  globals: {
-    require: 'readonly',
-    module: 'readonly',
   },
   overrides: [
     {
