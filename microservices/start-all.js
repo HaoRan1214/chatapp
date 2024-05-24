@@ -4,11 +4,13 @@ const { exec } = require('child_process');
 
 
 const services = [
-  { name: 'Service1-Notification', command: 'cd notification-service && node index.js' },
+  { name: 'API Gateway', command: 'cd api-gateway && node index.js' },
+  { name: 'Service1-auth', command: 'cd auth-service && node index.js' },
   { name: 'Service2-file', command: 'cd file-upload-service && node index.js' },
   { name: 'Service3-filter', command: 'cd filter-service && node index.js' },
   { name: 'Service4-chat', command: 'cd chat-toggle-service && node index.js' },
-  { name: 'Service5-emoji', command: 'cd emoji-service && node index.js' }
+  { name: 'Service5-emoji', command: 'cd emoji-service && node index.js' },
+  { name: 'Service6-notification', command: 'cd notification-service && node index.js' }
 ];
 
 // 依次运行每个命令

@@ -1,26 +1,10 @@
 version: '3'
-
 services:
-  chat-service:
-    build: ./chat-service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "5001:5001"
-    depends_on:
-      - mongo
-
-  file-upload-service:
-    build: ./file-upload-service
-    ports:
-      - "5002:5002"
-    depends_on:
-      - mongo
-
-  filter-service:
-    build: ./filter-service
-    ports:
-      - "5003:5003"
-
-  mongo:
-    image: mongo:latest
-    ports:
-      - "27017:27017"
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
