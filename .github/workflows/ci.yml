@@ -13,6 +13,14 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    services:
+      docker:
+        image: docker:19.03.12
+        options: --privileged
+        ports:
+          - 3000:3000
+          - 5000:5000 # 如果有多个端口需要暴露，请添加更多
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -20,10 +28,40 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '20'
+        node-version: '14'
 
-    - name: Install dependencies
-      run: npm install
+    - name: Install backend dependencies
+      run: |
+        cd backend
+        npm install
+
+    - name: Install frontend dependencies
+      run: |
+        cd frontend
+        npm install
+
+    - name: Install microservices dependencies
+      run: |
+        cd microservices
+        npm install
+
+    - name: Start backend
+      run: |
+        cd backend
+        npm start &
+        sleep 10 # 等待后端服务启动
+
+    - name: Start frontend
+      run: |
+        cd frontend
+        npm run dev &
+        sleep 10 # 等待前端服务启动
+
+    - name: Start microservices
+      run: |
+        cd microservices
+        npm run start-all &
+        sleep 10 # 等待微服务启动
 
     - name: Run static code analysis
       run: npm run lint
@@ -36,10 +74,10 @@ jobs:
 
     - name: Run load tests
       run: |
-        docker run --rm -i grafana/k6 run - <load-test/load-test-script.js
+        docker run --network=host --rm -i grafana/k6 run - <load-test/load-test-script.js
 
     - name: Run end-to-end tests
-      run: npm run cypress:run
+      run: npx cypress run
 
   deploy:
 
