@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+/* eslint-disable no-undef */
 const daisyui = require("daisyui");
 
 module.exports = {
@@ -8,3 +9,4 @@ module.exports = {
   },
   plugins: [daisyui],
 };
+/* eslint-enable no-undef */
