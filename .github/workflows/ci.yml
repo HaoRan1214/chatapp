@@ -20,13 +20,13 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '20'  # 更新为 Node.js 16
+        node-version: '14'
 
     - name: Install dependencies
       run: npm install
 
     - name: Run static code analysis
-      run: npx eslint .
+      run: npm run lint
 
     - name: Run security check
       run: npm audit
@@ -39,7 +39,7 @@ jobs:
         docker run --rm -i grafana/k6 run - <load-test/load-test-script.js
 
     - name: Run end-to-end tests
-      run: npx cypress run
+      run: npm run cypress:run
 
   deploy:
 
@@ -64,7 +64,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/your-repo:latest
+        tags: ${{ secrets.DOCKER_USERNAME }}/chatapp:latest
 
     - name: Deploy with Docker Compose
       run: |
