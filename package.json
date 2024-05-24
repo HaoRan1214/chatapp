@@ -7,7 +7,7 @@
     "server": "nodemon backend/server.js",
     "start": "node backend/server.js",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
-    "lint": "eslint . --config eslint.config.js",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "jest",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
@@ -19,23 +19,23 @@
   "dependencies": {
     "axios": "^1.7.0",
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.4.1",
-    "eslint": "^8.30.0",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.1.1",
-    "socket.io": "^4.7.4",
-    "body-parser": "^1.19.0"
+    "socket.io": "^4.7.4"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.10.0",
+    "@typescript-eslint/parser": "^7.10.0",
     "cypress": "^13.10.0",
-    "eslint": "^8.30.0",
+    "eslint": "^9.3.0",
     "eslint-plugin-react": "^7.34.1",
+    "jest": "^27.0.6",
     "nodemon": "^3.0.3",
-    "supertest": "^7.0.0",
-    "jest":"^27.0.6"
+    "supertest": "^7.0.0"
   }
 }
