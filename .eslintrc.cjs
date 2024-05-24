@@ -8,8 +8,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'plugin:react-refresh/recommended',
+    'plugin:react-hooks/recommended', // 添加 React hooks 插件
     'plugin:@typescript-eslint/recommended',
     'plugin:cypress/recommended', // 添加 Cypress 推荐配置
   ],
@@ -23,14 +22,13 @@ module.exports = {
   },
   plugins: [
     'react',
-    'react-hooks',
-    'react-refresh',
+    'react-hooks', // 添加 React hooks 插件
     '@typescript-eslint',
     'cypress', // 添加 Cypress 插件
   ],
   settings: {
     react: {
-      version: 'detect',
+      version: 'detect', // 自动检测 React 版本
     },
   },
   rules: {
