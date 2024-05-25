@@ -49,19 +49,19 @@ jobs:
       run: |
         cd backend
         npm start &
-        sleep 10
+        sleep 15  # 等待后端服务启动
 
     - name: Start frontend
       run: |
         cd frontend
         npm run dev &
-        sleep 10
+        sleep 15  # 等待前端服务启动
 
     - name: Start microservices
       run: |
         cd microservices
         npm run start-all &
-        sleep 10
+        sleep 15  # 等待微服务启动
 
     - name: Run static code analysis
       run: npm run lint
