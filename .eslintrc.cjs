@@ -17,7 +17,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2021,
+    ecmaVersion: 12,
     sourceType: 'module',
   },
   plugins: [
