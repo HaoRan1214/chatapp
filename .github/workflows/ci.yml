@@ -28,7 +28,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: '20'
 
     - name: Install backend dependencies
       run: |
@@ -44,9 +44,6 @@ jobs:
       run: |
         cd microservices
         npm install
-
-    - name: Install Cypress plugin for ESLint
-      run: npm install eslint-plugin-cypress --save-dev
 
     - name: Start backend
       run: |
